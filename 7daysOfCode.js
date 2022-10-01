@@ -3,11 +3,11 @@ console.log(null == undefined);
 console.log("\t\r\n" == 0);
 console.log(''== 0) ;
 
-let numeroUm = 10;
+let numeroUm = 1;
 let stringUm = '1';
-let numeroTrinta = 35;
+let numeroTrinta = 30;
 let stringTrinta = '30';
-let numeroDez = 15;
+let numeroDez = 10;
 let stringDez = '10';
 
 if (numeroUm == stringUm) {
