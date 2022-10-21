@@ -29,7 +29,7 @@ const cliente = {
 
 let relatorio = "";
 
-for (let info in cliente) {// metodo for in para uso de objetos. Utilizado para pegar as chaves do objetos 
+for (let info in cliente) {// metodo for in para uso de objetos. Utilizado para pegar as propriedade ou chaves do objetos 
     // usando if else para separar os sub objetos e function dentro do objetos
     if(typeof cliente[info] === "object" || typeof cliente[info] === "function" ){ // no if separamos os objetos e function para não guardar na variavel relatorios
         continue
@@ -38,7 +38,8 @@ for (let info in cliente) {// metodo for in para uso de objetos. Utilizado para 
         ${info} ==> ${cliente[info]}
         ` // uso da let relatorio para guardar a chave dentro
     }
-    
+     
 }
 console.log(typeof cliente.depositar)// verificando typeof do depositar do objeto cliente
 console.log(relatorio) // logo apos o uso do for in, mostramos o relatorio com as informações passadas dentro dele 
+ 
