@@ -25,14 +25,14 @@ function menorValor(arrProdutos, posicaoAtual) {
 
 
 for (let atual = 0; atual < livros.length; atual++) {
-    console.log(atual)
+    
     let menor = menorValor(livros, atual);
 
-    console.log(`Titulo: ${livros[atual].titulo} Preco ${livros[atual].preco}`)
+    
     let livroAtual = livros[atual]
     let maisBarato = livros[menor];
     
-    console.log(`Titulo: ${livros[menor].titulo} Preco ${livros[menor].preco}`)
+    
 
     livros[atual] = maisBarato
     livros[menor] = livroAtual
