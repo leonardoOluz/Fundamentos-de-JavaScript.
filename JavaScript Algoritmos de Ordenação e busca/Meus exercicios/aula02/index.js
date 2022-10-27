@@ -2,12 +2,16 @@ const listaLivros = require('./array')
 
 
 
-function mergeSort(array) {
+function mergeSort(array,nivelAninamento = 0 ) {
+    console.log(`Nível de aninhamento ${nivelAninamento}`)
+    console.log(array)
 
     if (array.length > 1) {
+        
         const meio = Math.floor(array.length / 2);
-        const parte1 = mergeSort(array.slice(0, meio));
-        const parte2 = mergeSort(array.slice(meio, array.length));
+        const parte1 = mergeSort(array.slice(0, meio), nivelAninamento +1);
+        const parte2 = mergeSort(array.slice(meio, array.length), nivelAninamento + 1);
+        
         array = ordenar(parte1, parte2);
     }
 
