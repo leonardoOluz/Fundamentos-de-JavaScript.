@@ -1,6 +1,6 @@
 const { edFolha, edGalho } = require('./arrays');
 
-// chamando a função insertion(lista) para ordenar cada lista
+// chamando a função insertioSort para ordenar as lista
 const edFolhaAtualizada = insertionSort(edFolha);
 const edGalhoAtualizada = insertionSort(edGalho);
 
@@ -82,6 +82,7 @@ function juntaLista(lista1, lista2) {
 }
 
 console.log(juntaLista(edGalhoAtualizada, edFolhaAtualizada));
+
 
 
 // Nesta aula, aprendemos:
