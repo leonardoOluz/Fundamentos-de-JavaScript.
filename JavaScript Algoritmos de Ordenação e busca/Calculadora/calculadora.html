@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+    <style>
+        body {
+            background-color: rgb(50, 218, 218);
+            font-style: normal 18px Arial;
+            text-align: center;
+        }
+        .botoes{            
+           padding: 20px;
+           background-color: rgb(22, 224, 224);
+        }
+        .tipocalc{
+            font: 25px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Calculadora</h1>
+    <p>Colocando os dados</p>
+    <p class="tipocalc"></p>
+    <input type="number" class="num1" required>
+    <input type="number" class="num2" required>
+    <div class="botoes">
+        <input type="button" value="Somar" onclick="somar()">
+        <input type="button" value="Subtrair" onclick="subtrair()">
+        <input type="button" value="Dividir" onclick="dividir()">
+        <input type="button" value="Multiplicar" onclick="multiplicar()">
+    </div>
+
+    <h2 class="resp"></h2>
+    <script src="calculadora.js"></script>
+
+</body>
+
+</html>
