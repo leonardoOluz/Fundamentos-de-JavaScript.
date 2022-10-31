@@ -50,3 +50,10 @@
 // Até atingir call stack size exceeded, da mesma forma que ocorreu quando passamos o valor de 60, maior do que o maior elemento do array.
 
 // Faça a conferência em seu projeto!
+
+// Nesta aula, aprendemos:
+
+// Aplicamos novamente o paradigma “dividir para conquistar” para desenvolver o algoritmo de busca chamado busca binária;
+// Utilizamos recursão para manipular um array ordenado e buscar um elemento, seguindo o fluxo da busca binária que foi visto nas simulações e testes;
+// Desenvolvemos código em JavaScript para implementar o algoritmo de busca binária;
+// Continuamos a prática de funções recursivas, vendo o funcionamento do “caso base”, que pode ser considerada como a condição de parada de uma função recursiva.
