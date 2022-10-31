@@ -1,13 +1,17 @@
 const listaLivros = require('./arrayOrdenado')
 
+
+// Busca Binaria
+
 function busca(array, de, ate, valorBuscado) {
     const meio = Math.floor((de + ate) / 2);
     const atual = array[meio];
-
+    if (de > ate) {
+        return -1;
+    }
     if (valorBuscado === atual.preco) {
         return meio;
     }
-
     if (valorBuscado < atual.preco) {
         return busca(array, de, meio - 1, valorBuscado);
         // 1°  array = 5 , de = 0, meio = math.floor(5/2), Vl 10
