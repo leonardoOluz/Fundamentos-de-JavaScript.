@@ -12,3 +12,4 @@ console.log(media);
 // Sempre que precisar adicionar elementos em lista podemos usar a função .push('Elemento'). dessa forma adicionamos um elemento dentro da array, colocando sempre no seu ultimo indice o novo elemento.
 
 
+ 
