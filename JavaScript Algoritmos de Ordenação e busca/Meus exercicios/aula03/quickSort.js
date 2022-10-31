@@ -17,7 +17,7 @@ function quickSort(array, esquerda, direita) {
     return array;
 }
 
-function particiona(array, esquerda, direita) {
+function particiona(array, esquerda, direita) { 
     let pivo = array[Math.floor((esquerda + direita) / 2)];
     let atualEsquerda = esquerda;
     let atualDireita = direita;
@@ -41,7 +41,5 @@ function particiona(array, esquerda, direita) {
     return atualEsquerda;
 
 }
-
-
 
 console.log(quickSort(listaLivros, 0, listaLivros.length - 1))
