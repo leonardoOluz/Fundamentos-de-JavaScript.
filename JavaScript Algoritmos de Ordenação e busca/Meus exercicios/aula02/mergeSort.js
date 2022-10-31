@@ -7,11 +7,10 @@ function mergeSort(array,nivelAninamento = 0 ) {
     console.log(array)
 
     if (array.length > 1) {
-        
+        console.log(array.length)
         const meio = Math.floor(array.length / 2);
         const parte1 = mergeSort(array.slice(0, meio), nivelAninamento +1);
         const parte2 = mergeSort(array.slice(meio, array.length), nivelAninamento + 1);
-        
         array = ordenar(parte1, parte2);
     }
 
@@ -36,7 +35,8 @@ function ordenar(parte1, parte2) {
         }
 
     }
-    return resultado.concat(posicaoParte1 < parte1.length ? parte1.slice(posicaoParte1): parte2.slice(posicaoParte2));
+
+    return resultado.concat(posicaoParte1 < parte1.length ? parte1.slice(posicaoParte1): parte2.slice(posicaoParte2));    
 
 }
 
