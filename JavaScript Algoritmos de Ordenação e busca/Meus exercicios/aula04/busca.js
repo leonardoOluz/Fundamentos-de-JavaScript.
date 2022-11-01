@@ -4,6 +4,7 @@ const listaLivros = require('./arrayOrdenado')
 // Busca Binaria
 
 function busca(array, de, ate, valorBuscado) {
+    console.log('de , ate', de, ate )
     const meio = Math.floor((de + ate) / 2);
     const atual = array[meio];
     if (de > ate) {
@@ -13,16 +14,13 @@ function busca(array, de, ate, valorBuscado) {
         return meio;
     }
     if (valorBuscado < atual.preco) {
-        return busca(array, de, meio - 1, valorBuscado);
-        // 1°  array = 5 , de = 0, meio = math.floor(5/2), Vl 10
-        // 2° array = 2, de = 0, meio = math.floor(2/2), vl 10  
+        return busca(array, de, meio - 1, valorBuscado); // recursão
+         
     }
     if (valorBuscado > atual.preco) {
-        return busca(array, meio + 1, ate, valorBuscado);
-        // 1° array = 10, meio = math.floor(6), ate = 10, vl 10
-        // 2° array = 10, meio = math.floor(4), ate = 10, vl 10
-
+        return busca(array, meio + 1, ate, valorBuscado); // recursão
+        
     }
 }
 
-console.log(busca(listaLivros, 0, listaLivros.length - 1, 60))
+console.log(busca(listaLivros, 0, listaLivros.length - 1, 35))
