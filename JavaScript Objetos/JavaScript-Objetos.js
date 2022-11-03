@@ -33,17 +33,37 @@ const cliente1 = {
 
 const chaves = ["nome","idade", "cpf", "email"]// usando uma array com os valores escrito com os nomes da chaves do objeto cliente1
 
-console.log(cliente1[chaves[0]]) // usando notação de conchetes para passar os valores da variavel chaves
+// console.log(cliente1[chaves[0]]) // usando notação de conchetes para passar os valores da variavel chaves
 
 // obs: console.log(cliente1[chaves]) se passarmos só a chave dentro do conchete, não será possive acessar pois não existe nenhuma chave chamada chaves dentro do objeto cliente1
 
 // obs: console.log(cliente1.chaves) se passarmos chaves usando notação de ponto, também não é possivel acessar pois chaves não é uma chave do objeto cliente1.
 
-chaves.forEach(info => console.log(cliente1[info]))// Usamos o forEach na array chaves para que possa acessar todo indice do array mais passando os valores, no exemplo o paramentro (info) traz de dentro da array os valores e é adicionado no console.log dentro da anotação de conchetes do cliente1[info]. dessa forma imprime todos os valores das chaves dentro do objeto cliente1
+// chaves.forEach(info => console.log(cliente1[info]))// Usamos o forEach na array chaves para que possa acessar todo indice do array mais passando os valores, no exemplo o paramentro (info) traz de dentro da array os valores e é adicionado no console.log dentro da anotação de conchetes do cliente1[info]. dessa forma imprime todos os valores das chaves dentro do objeto cliente1
 
-console.log(cliente1["idade"]) // passando dentro da anotação de conchetes o nome da chave do objeto cliente1, só podemos passar desta forma quando conhecemos o objeto e sua chave mais não é viavel seu uso na programação
-
-
+// console.log(cliente1["idade"]) // passando dentro da anotação de conchetes o nome da chave do objeto cliente1, só podemos passar desta forma quando conhecemos o objeto e sua chave mais não é viavel seu uso na programação
 
 
 
+
+// **** Adicionando chaves e valores dentro do objetos ****
+
+
+
+console.log(cliente1); // antes de passar a nova chave e valor
+
+cliente1.fone = "123456789"; // passando com anotação de ponto uma nova chave e usando = para adicionar a essa nova chave os valores podemos criar no objeto uma nova chave com seu valor dentro do objeto.
+
+console.log(cliente1)// depois de passar a nova chave e valor
+
+cliente1.fone ="321654987"; // Ao passarmos um novo valor a chave criada no objeto cliente1, estamos sobreescrevendo os valores dentro da chave.
+
+console.log(cliente1);// depois de sobrescrever o valores da chave imprindo verificamos que foi alterado os valores de .fone do cliente1
+
+
+
+//  ***** Adicionado mais de um valor dentro da chave *****
+
+
+
+ 
