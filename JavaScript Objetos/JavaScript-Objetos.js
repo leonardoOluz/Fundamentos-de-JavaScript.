@@ -65,7 +65,7 @@ console.log(cliente1);// depois de sobrescrever o valores da chave imprindo veri
 //  ***** Adicionado mais de um valor dentro da chave *****
 
 const cliente2 = {
-//  keys:  valores    
+    //  keys:  valores    
     nome: "André",// dados do tipo estring
     idade: 36,// dados do tipo number
     cpf: "1232456789",// dados do tipo string
@@ -85,7 +85,7 @@ cliente2.fones.forEach(fones => console.log(fones)) // usamos um metodo de array
 
 
 cliente2.dependentes = { // Ao colocarmos um objeto existente e passar uma nova chave com anotação de ponto e passando para essa chave = { as novas chaves com seus valores dentro} criamos um novo objeto dentro de outro objeto
-    nome:"Sara",
+    nome: "Sara",
     parentesco: "filha",
     dataNasc: "20/03/2011"
 }
@@ -98,6 +98,43 @@ console.log(cliente2); // imprimindo o objeto cliente2 com seu novo objeto depen
 
 
 
-cliente2.dependentes.nome = "Sara Silva";
+cliente2.dependentes.nome = "Sara Silva"; // Para mudarmos os valores dentro da chave de um objeto dentro de outro objeto, acessamos o objeto principal e com anotação de ponto acessamos o objeto dentro do objeto e outra vez anotação de ponto para acessar a chave que desejamos alterar.
 
 console.log(cliente2)
+
+
+// ****** Adicionando um objeto novo dentro do objeto chave ex: (dependente) que é chave do objeto cliente3   ******  
+// ou seja estamos colocando dentro de um objeto que é do tipo array para que possa guardar mais de um objeto.
+// lembrando que cada objeto dentro da array dependente é um indice. ou seja objetos podem ser indices de uma array
+
+
+
+const cliente3 = {
+    //  keys:  valores    
+    nome: "André",// dados do tipo estring
+    idade: 36,// dados do tipo number
+    cpf: "1232456789",// dados do tipo string
+    email: "andre@email.com",// dados do tipo estring
+
+    // chave fone = dados do tipo array
+    fones: ["321654987", "3216549876"], // Para adicionar uma chave com valores dentro de array precisamos colocar conchetes [] depos da chave
+    
+    
+    // obs: por mais que o os objs dentro seja com diversar chave, dentro do objeto dependentes cada obj é um indice.
+    // exeplos: dependente:[ { indice 0},{ indice 1},{ indice 2}]. mesmo sabendo que pode ter diversas chaves dentro de cada indice que é um obj
+    dependentes: [{// Trasnfomando a chave dependente em um array para que possamos colocar mais de um objeto dentro do mesmo d : [{ obj},{oObjs}]
+        nome: "Sara Silva",
+        parentesco: "filha",
+        dataNasc: "20/03/2011"
+    }]
+}
+
+ 
+cliente3.dependentes.push({ // usamos o metodo de array .push para adicionar o novo objeto dentro da array dependente
+    nome:" Samia Maria",
+    parentesco: "filha",
+    dataNasc: "20/03/2011"
+})
+
+console.log(cliente3)
+
