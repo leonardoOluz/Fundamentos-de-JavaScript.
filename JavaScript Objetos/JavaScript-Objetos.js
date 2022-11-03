@@ -133,8 +133,20 @@ const cliente3 = {
 cliente3.dependentes.push({ // usamos o metodo de array .push para adicionar o novo objeto dentro da array dependente
     nome:" Samia Maria",
     parentesco: "filha",
-    dataNasc: "20/03/2011"
+    dataNasc: "04/01/2014"
 })
 
 console.log(cliente3)
+
+// Buscando um dado dentro da array dependente  que temo outros objetos dentro
+
+
+// Criamos uma const para armazenar uma array
+const filhaMaisNova = cliente3.dependentes.filter(dependente => dependente.dataNasc === "04/01/2014")// Usando o metodo de array .filter para verificar se há dentro do obj cliente3 na chave dependente que é de tipo array verificando na chave de nome dataNasc dos objetos se tem o valor "04/01/2014", se acaso tiver a const filhaMaisNova guarda todos os dados desse objeto encontrado dentro da array dependentes
+
+console.log(filhaMaisNova)// imprimindo toda a const que contem os dados do objeto
+
+console.log(filhaMaisNova[0].nome)// imprimindo o objeto de indice 0 porém só foi guardado na varivel esse objeto conforme o filter. Se tentar imprimir outro indice não existe e será indefinido.
+
+
 
