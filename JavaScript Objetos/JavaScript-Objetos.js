@@ -245,5 +245,30 @@ for (const info in cliente4) {// usando o (for in) e acessando a chave
     }
 }
 
-
+console.log(typeof cliente4.depositar)// typeof mostra o tipo de dados que estão sendo armazenado na posição do objeto
+console.log(typeof cliente4.dependentes)// typeof mostra o tipo de dados que estão sendo armazenado na posição do objeto
+console.log(typeof cliente4.saldo)// typeof mostra o tipo de dados que estão sendo armazenado na posição do objeto
+console.log(typeof cliente4.nome)// typeof mostra o tipo de dados que estão sendo armazenado na posição do objeto
 console.log(relatorio)
+
+
+
+
+
+//  *****  Extraindo lista de chaves do objeto  *****
+
+
+
+// função que utiliza o metodo de Object.keys para verificar junto com o metodo includes se temos a chave dependente para oferecer o seguro
+function oferecerSeguro(obj) {
+    const propsClientes = Object.keys(obj);// Object.keys(objeto) usamos para guardar em uma variavel os nomes de todas as chave dentro do objeto
+    if (propsClientes.includes("dependentes")) {// metodo includes para verificar dentro da array a propriedade passada no seu parametro
+        console.log(`Oferta de seguro de vida para ${obj.nome}`)
+    }
+}
+
+
+console.log(Object.keys(cliente4))// usando o Object.keys(obj) conseguimos pegar as chaves e mostrar como uma array
+console.log(Object.entries(cliente4))// usando o Object.entries(obj) conseguimos pegar as chaves e os valores do objeto e mostrar como array
+console.log(Object.values(cliente4))// usando o Object.values(obj) conseguimos pegar os valores de cada chave dentro do objeto
+oferecerSeguro(cliente4)
