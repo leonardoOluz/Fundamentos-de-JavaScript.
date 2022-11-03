@@ -1,4 +1,4 @@
-//      #  JavaScript Objetos  #
+//                                        #  JavaScript Objetos  #
 
 
 const listaCpfs = ['123456798', '123456465', '123456456'] // uma array sozinha não é capaz de guardar dados necessario para um objeto
@@ -6,7 +6,7 @@ const listaCpfs = ['123456798', '123456465', '123456456'] // uma array sozinha n
 const cliente = ["nome", "André", "idade", 36]// com apenas array só podemos guardar os valores dentro
 
 
-// * Criando um Objeto Cliente *
+//  * Criando um Objeto Cliente *
 
 // Uma objeto é composto por uma cadeia de chaves com valores 
 
@@ -19,6 +19,10 @@ const cliente1 = {
     email: "andre@email.com"
 }
 
+
+
+
+
 // ** Formas de acessar o Objeto **
 
 
@@ -26,6 +30,10 @@ const cliente1 = {
 // console.log(`Meu nome é ${cliente1.nome} e tenho ${cliente1.idade} anos.`) // usando notação de ponto para acessar a chave do objeto ex:${cliente.nome}
 
 // console.log(cliente1.cpf.substring(0,3))// usando  .substring(0,3) para mostrar apenas aguns caracteres dos valores. necessario passar os paramentros
+
+
+
+
 
 
 // *** Formas de acessar uma chave sem o nome da chave no objeto ***
@@ -46,6 +54,9 @@ const chaves = ["nome", "idade", "cpf", "email"]// usando uma array com os valor
 
 
 
+
+
+
 // **** Adicionando chaves e valores dentro do objetos ****
 
 
@@ -59,6 +70,9 @@ console.log(cliente1)// depois de passar a nova chave e valor
 cliente1.fone = "321654987"; // Ao passarmos um novo valor a chave criada no objeto cliente1, estamos sobreescrevendo os valores dentro da chave.
 
 console.log(cliente1);// depois de sobrescrever o valores da chave imprindo verificamos que foi alterado os valores de .fone do cliente1
+
+
+
 
 
 
@@ -76,6 +90,10 @@ const cliente2 = {
 }
 
 cliente2.fones.forEach(fones => console.log(fones)) // usamos um metodo de array forEach para percorrer todos os valores da array fones do objeto cliente2
+
+
+
+
 
 
 
@@ -101,6 +119,12 @@ console.log(cliente2); // imprimindo o objeto cliente2 com seu novo objeto depen
 cliente2.dependentes.nome = "Sara Silva"; // Para mudarmos os valores dentro da chave de um objeto dentro de outro objeto, acessamos o objeto principal e com anotação de ponto acessamos o objeto dentro do objeto e outra vez anotação de ponto para acessar a chave que desejamos alterar.
 
 console.log(cliente2)
+
+
+
+
+
+
 
 
 // ****** Adicionando um objeto novo dentro do objeto chave ex: (dependente) que é chave do objeto cliente3   ******  
@@ -147,6 +171,54 @@ const filhaMaisNova = cliente3.dependentes.filter(dependente => dependente.dataN
 console.log(filhaMaisNova)// imprimindo toda a const que contem os dados do objeto
 
 console.log(filhaMaisNova[0].nome)// imprimindo o objeto de indice 0 porém só foi guardado na varivel esse objeto conforme o filter. Se tentar imprimir outro indice não existe e será indefinido.
+
+
+
+
+
+
+
+
+// ******  Criando funções dentro dos objetos   ****** 
+
+
+
+const cliente4 = {
+    //  keys:  valores    
+    nome: "André",// dados do tipo estring
+    idade: 36,// dados do tipo number
+    cpf: "1232456789",// dados do tipo string
+    email: "andre@email.com",// dados do tipo estring
+
+    // chave fone = dados do tipo array
+    fones: ["321654987", "3216549876"], // Para adicionar uma chave com valores dentro de array precisamos colocar conchetes [] depos da chave
+    
+    
+    // obs: por mais que o os objs dentro seja com diversar chave, dentro do objeto dependentes cada obj é um indice.
+    // exeplos: dependente:[ { indice 0},{ indice 1},{ indice 2}]. mesmo sabendo que pode ter diversas chaves dentro de cada indice que é um obj
+    dependentes: [{// Trasnfomando a chave dependente em um array para que possamos colocar mais de um objeto dentro do mesmo d : [{ obj},{oObjs}]
+        nome: "Sara Silva",
+        parentesco: "filha",
+        dataNasc: "20/03/2011"
+    },{ 
+        nome:" Samia Maria",
+        parentesco: "filha",
+        dataNasc: "04/01/2014"
+    }],
+    saldo:100,
+    depositar:function(valor){// Usando uma sintaxis classica função() para que possamos modificar a chave saldo
+
+        this.saldo += valor // usando uma palavra reservada this. para referi-se ao objeto
+
+    }
+}
+
+
+console.log(cliente4.saldo);
+
+cliente4.depositar(30);// Adionando valores no saldo apartir da função depositar do obj cliente4
+
+console.log(cliente4.saldo)
 
 
 
