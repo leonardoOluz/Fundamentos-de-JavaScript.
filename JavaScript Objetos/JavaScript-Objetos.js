@@ -142,8 +142,8 @@ const cliente3 = {
 
     // chave fone = dados do tipo array
     fones: ["321654987", "3216549876"], // Para adicionar uma chave com valores dentro de array precisamos colocar conchetes [] depos da chave
-    
-    
+
+
     // obs: por mais que o os objs dentro seja com diversar chave, dentro do objeto dependentes cada obj é um indice.
     // exeplos: dependente:[ { indice 0},{ indice 1},{ indice 2}]. mesmo sabendo que pode ter diversas chaves dentro de cada indice que é um obj
     dependentes: [{// Trasnfomando a chave dependente em um array para que possamos colocar mais de um objeto dentro do mesmo d : [{ obj},{oObjs}]
@@ -153,9 +153,9 @@ const cliente3 = {
     }]
 }
 
- 
+
 cliente3.dependentes.push({ // usamos o metodo de array .push para adicionar o novo objeto dentro da array dependente
-    nome:" Samia Maria",
+    nome: " Samia Maria",
     parentesco: "filha",
     dataNasc: "04/01/2014"
 })
@@ -192,21 +192,21 @@ const cliente4 = {
 
     // chave fone = dados do tipo array
     fones: ["321654987", "3216549876"], // Para adicionar uma chave com valores dentro de array precisamos colocar conchetes [] depos da chave
-    
-    
+
+
     // obs: por mais que o os objs dentro seja com diversar chave, dentro do objeto dependentes cada obj é um indice.
     // exeplos: dependente:[ { indice 0},{ indice 1},{ indice 2}]. mesmo sabendo que pode ter diversas chaves dentro de cada indice que é um obj
     dependentes: [{// Trasnfomando a chave dependente em um array para que possamos colocar mais de um objeto dentro do mesmo d : [{ obj},{oObjs}]
         nome: "Sara Silva",
         parentesco: "filha",
         dataNasc: "20/03/2011"
-    },{ 
-        nome:" Samia Maria",
+    }, {
+        nome: " Samia Maria",
         parentesco: "filha",
         dataNasc: "04/01/2014"
     }],
-    saldo:100,
-    depositar:function(valor){// Usando uma sintaxis classica função() para que possamos modificar a chave saldo
+    saldo: 100,
+    depositar: function (valor) {// Usando uma sintaxis classica função() para que possamos modificar a chave saldo
 
         this.saldo += valor // usando uma palavra reservada this. para referi-se ao objeto
 
@@ -222,3 +222,28 @@ console.log(cliente4.saldo)
 
 
 
+//  *****  Verificando as chaves do objeto *****  
+// obs: o objeto não tem indice como uma array por este motivo temos que precisamos utilizar um metodo para percorres cada chave do objeto
+// obs1: Objetos é uma listas não ordenadas
+// como mostrar os dados para as pessoas legitimo para leitura
+
+// utilizando o metodo (for in) para percorrer objetos
+
+
+
+let relatorio = "";// criamos uma variavel para guardar o reaultado do (for in)
+
+
+// Usando o (for in) para percorrer o objeto e listar a cada loop sua chave no (info), assim conseguimos acessar os valores dentro da chave
+for (const info in cliente4) {// usando o (for in) e acessando a chave 
+    if (typeof cliente4[info] === "object" || typeof cliente4[info] === "function") {// Verificando se dentro do objetos temos outros objetos e function que não necessita demostrar para uma pessoa ler os dados, ou seja estamos filtrando o necessario
+        continue// uso do continue para continuar o if 
+    } else {// acaso o loop do for contem chaves com dados primitivos, guardamos em uma variavel para mostrar depois 
+        relatorio += ` 
+      ${info} ==> ${cliente4[info]}
+      `
+    }
+}
+
+
+console.log(relatorio)
