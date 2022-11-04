@@ -256,13 +256,14 @@ console.log(relatorio)
 
 
 //  *****  Extraindo lista de chaves do objeto  *****
+// Podemos usar metodos de objetos para acessar chaves e valores dentro do objetos
 
 
 
 // função que utiliza o metodo de Object.keys para verificar junto com o metodo includes se temos a chave dependente para oferecer o seguro
 function oferecerSeguro(obj) {
     const propsClientes = Object.keys(obj);// Object.keys(objeto) usamos para guardar em uma variavel os nomes de todas as chave dentro do objeto
-    if (propsClientes.includes("dependentes")) {// metodo includes para verificar dentro da array a propriedade passada no seu parametro
+    if (propsClientes.includes("dependentes")) {// metodo de array includes para verificar dentro da array a propriedade passada no seu parametro, o metodo de array retorna true ou false.
         console.log(`Oferta de seguro de vida para ${obj.nome}`)
     }
 }
@@ -272,3 +273,52 @@ console.log(Object.keys(cliente4))// usando o Object.keys(obj) conseguimos pegar
 console.log(Object.entries(cliente4))// usando o Object.entries(obj) conseguimos pegar as chaves e os valores do objeto e mostrar como array
 console.log(Object.values(cliente4))// usando o Object.values(obj) conseguimos pegar os valores de cada chave dentro do objeto
 oferecerSeguro(cliente4)
+
+
+
+
+
+//  *******      Listando um objeto para mostra em uma array espalhando suas chaves e valores em uma array        *******
+
+// podemos usar operador de espalhamento para trazer dentro do objeto as suas chaves e seus valores para guardar em um array ex: [...obj.dependentes]
+
+
+
+const cliente5 = [{ // Quando usamos as chaves dentro e dentro os conchetes podemos dizer que temos uma array de objetos
+    nome: "Lucca",
+    cpf: "123456789",
+    dependentes: [{
+        nome:"Roblox",
+        parentesco: "Jogatina",
+        dataNasc: "04/06/2014"
+    }]
+},{
+    nome: "Ana",
+    cpf: "321654987",
+    dependentes: [{
+        nome: "TikTik",
+        parentesco: "Celular",
+        dataNasc: "05/05/2015"
+    }]
+},{
+    nome: "Leonardo",
+    cpf: "987654321",
+    dependentes: [{
+        nome: "Notbook",
+        parentesco: "Casa",
+        dataNasc: "23/07/2022"
+    }]
+}]
+
+
+
+// Usando o operador de espelhamento para espalhar os valore e as chaves dentro do array
+//       variavel            [reticência -> ... espalhamento]        
+const listaDeDependentes = [...cliente5[0].dependentes, ...cliente5[1].dependentes, ...cliente5[2].dependentes]
+
+// Usando o .table no console para mostrar uma tabela das chaves e seus valores
+console.table(listaDeDependentes);
+
+
+
+
