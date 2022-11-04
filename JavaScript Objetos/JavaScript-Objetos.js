@@ -324,6 +324,9 @@ console.table(listaDeDependentes);
 //   *****  JavaScript Linguagem de Prototype  *****
 
 
+// quando um objeto JavaScript é criado ele tem propriedades particulares 
+
+
 // JavaScript é uma linguagem prototipada devido seus objetos oculto estarem por de tras ao objetos, array e variaveis declarada. Esses objetos oculto é que auxilia em diversos metodos e funções que temos por de tras da liuguagem 
 
 
@@ -369,4 +372,48 @@ vania.depositarPoup(100)
 console.log(vania)
 // ana.depositarPoup(100)
 // console.log(ana)
+
+
+
+// ******      Orientação de Objetos    *****
+
+// Abstrair ou abstração = extrair de algo apenas coisas necessarias para uso envolvido
+
+// classes =  são modelos usados para a criação de objetos.
+// Uma classe tem atributos e métodos.
+
+// Atributos e Métodos em Orientação de Objetos. A classe define os atributos (Características) e os métodos (Comportamentos) de um objeto.
+
+// Herança = É um mecanismo da orientação a Objetos que permite que uma classe herde características de uma outra classe.
+
+// Objeto = É a instância de uma classe
+// Um objeto é uma instância de classe em memória.
+
+
+// A orientação a objetos é um modelo (estilo) de se programar
+// Na orientação a objetos a idéia é transfomar coisas do mundo para o código.
+
+/* A programação Orientada a Objetos foi incluido no JavaScript para que as pessoas que já estavam acostumada a trabalhar com essa forma de trabalha fica-se mais a vontade para trabalhar na linguagem, as formas mais comum é com objetos */
+
+class Cliente7{
+    constructor(nome, email, cpf, saldo){
+        this.nome = nome;
+        this.email = email;
+        this.cpf = cpf;
+        this.saldo = saldo;
+    }
+    depositar(valor){
+        this.saldo += valor;
+    }
+    exibirSaldo(){
+        console.log(`O saldo de ${this.nome} é de R$ ${this.saldo}`)
+    }
+}
+const leo = new Cliente7("Leonardo","leonardo@email","321654987",100)
+
+
+leo.depositar(500)
+console.log(leo)
+leo.exibirSaldo()
+
 
