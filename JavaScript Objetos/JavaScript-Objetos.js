@@ -321,4 +321,52 @@ console.table(listaDeDependentes);
 
 
 
+//   *****  JavaScript Linguagem de Prototype  *****
+
+
+// JavaScript é uma linguagem prototipada devido seus objetos oculto estarem por de tras ao objetos, array e variaveis declarada. Esses objetos oculto é que auxilia em diversos metodos e funções que temos por de tras da liuguagem 
+
+
+
+// Criando um função para objetos 
+
+
+function Cliente6 (nome, cpf, email, saldo) {
+    this.nome = nome// Usamos a palavra this. para referenciar a instancia do objeto referido
+    this.cpf = cpf
+    this.email = email
+    this.saldo = saldo
+    this.depositar = function(valor) {
+        this.saldo += valor
+    }
+}
+
+const leonardo  = new Cliente6("Leonardo Luz", "321654987", "leonardoluz@email.com", 300)
+console.log(leonardo)
+
+
+
+// Criando novo prototipo objeto objeto subclasse
+function ClientePoupanca(nome,cpf,email,saldo,saldoPoup){
+    Cliente6.call(this,nome,cpf,email,saldo)// usamos o metodo .call para referenciar o objeto classe na subclasse colocando a palavra this para referenciar os paramentros do objeto mãe
+    this.saldoPoup = saldoPoup
+}
+
+const ana = new ClientePoupanca("Ana","789456123","ana@email.com",300,100)
+console.log(ana)
+
+
+// Usamos o prototype para adicionar ao objeto clientePoupanca a funcao depositarPoup 
+ClientePoupanca.prototype.depositarPoup = function(valor){
+    this.saldoPoup += this.saldoPoup
+}
+
+
+const vania = new ClientePoupanca("Vania", "123456798","vania@email.com", 300, 100)
+console.log(vania)
+
+vania.depositarPoup(100)
+console.log(vania)
+// ana.depositarPoup(100)
+// console.log(ana)
 
