@@ -421,28 +421,28 @@ leo.exibirSaldo()
 
 
 
-function imprimeNomeEmail(tipoCliente) {
-    console.log(`${tipoCliente} - nome: ${this.nome}, email: ${this.email}`)
-}
+// function imprimeNomeEmail(tipoCliente) {
+//     console.log(`${tipoCliente} - nome: ${this.nome}, email: ${this.email}`)
+// }
 
-const cliente1 = {
-    nome: "Carlos",
-    email: "c@email.com"
-}
+// const cliente1 = {
+//     nome: "Carlos",
+//     email: "c@email.com"
+// }
 
-const cliente2 = {
-    nome: "Fred",
-    email: "f@email.com"
-}
+// const cliente2 = {
+//     nome: "Fred",
+//     email: "f@email.com"
+// }
 
 
 // Utilizando o metodo .call() para chamar a função imprimeEmail()
 
 
-imprimeNomeEmail.call(cliente1, "cliente especial")
-// cliente especial - nome: Carlos, email: c@email.com
+// imprimeNomeEmail.call(cliente1, "cliente especial")
+// // cliente especial - nome: Carlos, email: c@email.com
 
-imprimeNomeEmail.call(cliente2, "cliente estudante")
+// imprimeNomeEmail.call(cliente2, "cliente estudante")
 // cliente estudante - nome: Fred, email: f@email.com
 
 
@@ -450,30 +450,30 @@ imprimeNomeEmail.call(cliente2, "cliente estudante")
 /* O método apply() funciona de forma muito semelhante ao call(), porém recebe os argumentos em um array ao invés de separados: */
 
 
-function imprimeNomeEmail(tipoCliente, agencia) {
-    console.log(`
-      ${tipoCliente} da agência ${agencia}:
-      - nome: ${this.nome}, email: ${this.email}
-      `)
-}
+// function imprimeNomeEmail(tipoCliente, agencia) {
+//     console.log(`
+//       ${tipoCliente} da agência ${agencia}:
+//       - nome: ${this.nome}, email: ${this.email}
+//       `)
+// }
 
-const cliente1 = {
-    nome: "Carlos",
-    email: "c@email.com"
-}
+// const cliente1 = {
+//     nome: "Carlos",
+//     email: "c@email.com"
+// }
 
-const cliente2 = {
-    nome: "Fred",
-    email: "f@email.com"
-}
+// const cliente2 = {
+//     nome: "Fred",
+//     email: "f@email.com"
+// }
 
-const clienteEspecial = ["cliente especial", "Rio de Janeiro"]
-const clienteEstudante = ["cliente estudante", "Fortaleza"]
+// const clienteEspecial = ["cliente especial", "Rio de Janeiro"]
+// const clienteEstudante = ["cliente estudante", "Fortaleza"]
 
-imprimeNomeEmail.apply(cliente1, clienteEspecial)
+// imprimeNomeEmail.apply(cliente1, clienteEspecial)
 // cliente especial da agência Rio de Janeiro: - nome: Carlos, email: c@email.com
 
-imprimeNomeEmail.apply(cliente2, clienteEstudante)
+// imprimeNomeEmail.apply(cliente2, clienteEstudante)
 // cliente estudante da agência Fortaleza: - nome: Fred, email: f@email.com
 
 /* Utilize o método apply() caso você tenha um array de dados e o call() para passar valores individuais como parâmetro. Lembre-se que o array deve seguir a ordem correta dos parâmetros informado na função. */
@@ -484,12 +484,12 @@ imprimeNomeEmail.apply(cliente2, clienteEstudante)
 
 
 
-const personagem = {
-    nome: "Princesa Leia",
-    apresentar: function () {
-        return `a personagem é ${this.nome}`
-    }
-}
+// const personagem = {
+//     nome: "Princesa Leia",
+//     apresentar: function () {
+//         return `a personagem é ${this.nome}`
+//     }
+// }
 
 /* O objeto acima contém uma propriedade nome e um método apresentar que retorna um string com nome; this.nome liga a propriedade nome ao contexto do objeto em que a função está definida, ou seja, “este objeto”. */
 
@@ -503,11 +503,54 @@ console.log(personagemGenerico())
 
 
 /* Ressolvemos este problema com bind(): */
-const personagemDefinido = personagemGenerico.bind(personagem)
-console.log(personagemDefinido())
+// const personagemDefinido = personagemGenerico.bind(personagem)
+// console.log(personagemDefinido())
 //a personagem é Princesa Leia
 
 
 /* Acima, utilizamos o método bind() para “ligar” a função que atribuímos a personagemGenerico ao objeto personagem. Assim, sempre que esta função for executada a partir da variável personagemDefinido, a função original vai usar o objeto personagem como contexto de execução. Dessa forma, this sempre se refere ao objeto personagem e é capaz de acessar suas propriedades. */
 
 
+
+
+//  *******  Criando uma Classe filha da Classe mãe POO *******
+
+
+class Cliente8 {
+    constructor(nome, email, cpf, saldo) {
+        this.nome = nome;
+        this.email = email;
+        this.cpf = cpf;
+        this.saldo = saldo;
+    }
+    depositar(valor) {
+        this.saldo += valor;
+    }
+    exibirSaldo() {
+        console.log(`O saldo de ${this.nome} é de R$ ${this.saldo}`)
+    }
+}
+
+
+class Cliente8Poupanca extends Cliente8 {
+    constructor(nome, email, cpf, saldo, saldoPoupanca) {
+        super(nome, email, cpf, saldo)
+        this.saldoPoupanca = saldoPoupanca
+    }
+    depositarPoupanca(valor) {
+        this.saldoPoupanca += valor
+    }
+}
+
+const lucca = new Cliente8Poupanca('Lucca', 'l@email', '123456789', 300, 100)
+
+
+console.log(lucca)
+
+// Usando o prototype para adicionar o metodo sacarPoupanca
+Cliente8Poupanca.prototype.sacarPoupanca = function (valor) {
+    this.saldoPoupanca -= valor
+}
+lucca.sacarPoupanca(100)
+lucca.depositar(100)
+console.log(lucca) 
