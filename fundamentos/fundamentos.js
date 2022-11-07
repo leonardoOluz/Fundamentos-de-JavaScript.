@@ -124,3 +124,53 @@ const texto12 = "Alura";
 const texto22 = "alura";
 const texto1Minusculo = texto1.toLocaleLowerCase();
 console.log(texto1Minusculo === texto2);
+
+
+//   #   var -> Pode ser declarado em qualquer lugar do codigo pois ele é carregado antes de iniciar o programa
+//   ##  var -> devido a possibilidade de declarar em qualquer canto, surge o problema de declarar mais de uma vez não sendo uma boa prática e podendo se comporta de forma não previsivel (bugs)
+
+// var altura = 5;
+// var comprimento = 7;
+
+// area = altura * comprimento;
+// console.log(area)
+// var area;
+
+
+
+// # let -> Só conseguimos usar ela depois que declaramos a let
+
+
+
+// let forma = 'retângulo'
+// let altura = 5;
+// let comprimento = 7;
+// let area;
+
+// if (forma === 'retângulo') {
+//   area = altura * comprimento;
+// } else {
+//   area = (altura * comprimento) / 2;
+// }
+
+// console.log(area)
+
+
+
+// # const -> só pode ser declarado com valores a iniciar, pois são valores fixo e tem que ser declarado antes
+
+
+
+const forma = 'triângulo';
+const altura = 5;
+const comprimento = 7;
+let area;
+
+if (forma === 'quadrado') {
+  area = altura * comprimento;
+} else {
+  area = (altura * comprimento) / 2;
+}
+
+console.log(area)
+
