@@ -357,4 +357,36 @@ function multiplica(numero1 = 1, numero2 = 1){ // podemos passar no argumento um
 // console.log(multiplica(somaMais(4,5),somaMais(3,3)))
 console.log(multiplica(somaMais(4,5)))
 
+//       Expressões de funções
 
+
+//  atribuindo uma função a variavel, importante ser const para não colocar um valor dentro dela e apagando a função no meio do código, não sendo necessario dar no apos a função e podemos deixar a função mais curta.
+// é uma função anonima sem nome apenas a declaração da função 
+// Obs:  Diferença Principal da expressão de funções : HOISTING
+// FUNÇÕES E VAR SÃO * LISTADAS * NO TOPO DO ARQUIVO.   CONST EXPRESSÕES DE FUNÇÕES NÃO.
+
+
+const somas = function(num1 , num2){return num1 + num2}
+console.log(somas(1 , 1))
+
+
+//           Arraw function   
+
+
+// Obs: HOISTING
+// FUNÇÕES E VAR SÃO * LISTADAS * NO TOPO DO ARQUIVO.   CONST EXPRESSÕES DE FUNÇÕES E ARROW FUNCTION NÃO.
+const apresentarArrow = nome => `Meu nome é ${nome}`;
+const soma = (num1, num2) => num1 + num2;
+
+
+
+//    Arrow com mais de uma linha de instrução
+// Obs: HOISTING
+// FUNÇÕES E VAR SÃO * LISTADAS * NO TOPO DO ARQUIVO.   CONST EXPRESSÕES DE FUNÇÕES E ARROW FUNCTION NÃO.
+const somaNumerosPequenos = (num1, num2) => {
+  if (num1 || num2 > 10) {
+    return `somente números de 1 a 9`
+  }else{
+    return num1 + num2;
+  }
+}
