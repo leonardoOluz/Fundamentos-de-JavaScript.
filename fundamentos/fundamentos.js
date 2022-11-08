@@ -2,7 +2,7 @@
 
 //   ------------------- Tipo Number ---------------------- //
 
-const meuNumero = 3; 
+const meuNumero = 3;
 
 const primeiroNumero = 1;
 const segundoNumero = 2;
@@ -12,7 +12,7 @@ const opercaoSubtracao = primeiroNumero - segundoNumero;
 const opercaoDivisao = primeiroNumero / segundoNumero;
 const opercaoMultiplicacao = primeiroNumero * segundoNumero;
 
-console.log(operacaoSoma,opercaoSubtracao,opercaoDivisao,opercaoMultiplicacao)
+console.log(operacaoSoma, opercaoSubtracao, opercaoDivisao, opercaoMultiplicacao)
 
 
 // ponto flutuante
@@ -46,12 +46,12 @@ const texto2 = 'Olá, mundo!';
 //const senha = "senhaSuperSegura456!";
 const stringDeNumeros = "34567";
 
-const citacao  = 'Meu nome é ';
+const citacao = 'Meu nome é ';
 const meuNome = "Leonardo Luz";
 
 // concatenação
 console.log(citacao + meuNome);
-console.log( `${citacao + meuNome}`);
+console.log(`${citacao + meuNome}`);
 
 //temple string OU template literal
 
@@ -101,10 +101,10 @@ const palavra = "abcdefg";
 // usando o .includes para verificar os dados incluso na variavel
 
 for (let i = 0; i < palavra.length; i++) {
-    if (palavra[i].includes('g')) {
-        console.log(palavra[i])
-    }
-    
+  if (palavra[i].includes('g')) {
+    console.log(palavra[i])
+  }
+
 }
 
 
@@ -185,7 +185,7 @@ const contaPaga = false;
 // 0 => false 
 // 1 => true
 
-console.log(0 == false); 
+console.log(0 == false);
 console.log('' == false);
 console.log(1 == true);
 
@@ -194,10 +194,10 @@ console.log(1 == true);
 // null ==> vazio ou nada
 let minhaVar;
 let varNull = null;
- 
+
 //console.log(minhaVar);
 //console.log(varNull); 
- 
+
 let numero = 3;
 let texto = "Alura";
 // typeof demostra o tipo de variavel que está sendo guardada na variavel
@@ -215,7 +215,7 @@ console.log(typeof varNull);
 
 // Conversão explicita
 
-const numero1 =  456; 
+const numero1 = 456;
 const numeroString = Number('456'); // utilizando os conversores antes de declarar a variavel
 //Number('456a'); usando uma letra dentro do numero, não é possivel fazer nenhum tipo de calculo pois a conversão não consegue converter
 
@@ -223,5 +223,138 @@ const numeroString = Number('456'); // utilizando os conversores antes de declar
 //String() para converter em string
 
 console.log(numero1 + numeroString);
+
+
+//                                 JavaScript
+
+//    Tipagem Dinamica ->>  Variaveis declarada mais dinamicamente sem necessidade de declarar seu tipo.
+//    Tipagem Estatica ->> Variaveis declarada mais estaticamente sem necessario declarar o tipo de variavel (Caracteres, numerico, Bolleano, ponto flutuante)
+
+
+// JavasScript untyped
+
+// Tipagem dinâmica -> sem necessidade de declarar o tipo pois é dinamico
+// multiparadigma ->  Conseguimos resolver o mesmo problemas de varias formas diferente
+// Porque se chama JS? ->  A linguagem é bem pouco parecido com o Java, O nome do JavaScript é o EcmaScript.
+// O que é ES6 / ES2015 -> versões do JavaScript
+// Linguagem interpretada ->  Onde um programa por tras do codigo lé nosso arquivos para executar: obs esse tipo de liguagem é mais lenta porem facil de ler 
+// Linguagem compilada    -> Onde o compilador transforma nosso código em linguagem de maquina : obs: esse tipo de liguagem é bem mais rapido porem dificil de ler 
+// O que é o NodeJs ? -> É uma ferramenta para que possamos rodar o JavaScript sem a necessidade do navegador. Criada em 2010 
+
+
+
+let minhaVar1 = 567 // tipo number
+minhaVar1 = "texto" // tipo string
+minhaVar1 = true // tipo boolean
+
+
+//                            Erros no terminal 
+
+
+//   log -> registro
+
+const variavel = true
+console.log('registro')
+console.log(123456)
+console.log(variavel)
+
+
+// Tratamento de erro 
+
+console.error('de erro!') // quando necessitamos de demostrar algum erro na aplicação 
+
+
+
+//            Operadaores de comparações
+
+
+//  # O uso do operador de igualdade ==  se refere a ( comparação implicita ), comparando valores independente de seu tipo
+// Ex
+
+const n = 5;
+const nTexto = "5";
+// console.log( n == nTexto ) comparação implicita vcai retornar True
+
+
+// # O uso do operador de igauldade ===  já faz comparação de igualdade e tipo
+
+
+// console.log( n === nTexto ) comparação de valores e tipo obs no caso temos um false;
+
+// Podemos utilizar o typeof para verificar o tipo de dado que estamos trabalhando.
+
+// convertendo os dados podemos utilizar 
+
+// Number()
+// String()
+
+// Usando Operdador de comparação Ternario:   (Condição-> n  === nTexo) ? (True? -> n++ ): (false? -> nTexto--);
+// obs o seu uso é da forma: ternario ->       n >= nTexto ? n++ : nTexto;
+
+
+
+//      template literal
+
+// concatenando com variavies 
+
+// podemos usar o template string para concatenar usando acento grave e dentro o sifrão dollar e chaves para passar a variavel
+// ex
+const tampleString = `Eu sou a template string ${nTexto}`;
+
+
+//          funções 
+
+
+// let x = "";
+// console.log(x);
+// x ="oi";
+
+
+
+
+
+// Declaração de Função
+
+// String
+
+//  Usando uma função com parametros
+function x(texto) { // com parametros x argumentos
+  console.log(texto)
+}
+
+function somaMais(n1, n2) { // com parametros x argumentos
+  return n1 + n2; // retorno tem que ser o ultimo na função pois depois dele não é executado mais nada
+}
+
+function x(nome, idade) { // com parametros x argumentos
+  return `Meu nome é ${nome} e tenho ${idade}`// lembrando sempre das ordem dos parâmentros
+}
+
+// Executa a função 
+
+x('Olá,Mundo!')
+
+
+// três formas de funções 
+
+// usando uma função sem parâmentros
+function soma() { // sem paramentros
+  return 2 + 2; // retorno tem que ser o ultimo na função pois depois dele não é executado mais nada
+}
+
+console.log(soma())
+
+// usando uma função para chamar outra função
+
+x(soma()) // Uma função chamando outra função 
+
+
+function multiplica(numero1 = 1, numero2 = 1){ // podemos passar no argumento um valor para acaso não for passado os parâmentros
+  return numero1 * numero2
+}
+
+
+// console.log(multiplica(somaMais(4,5),somaMais(3,3)))
+console.log(multiplica(somaMais(4,5)))
 
 
