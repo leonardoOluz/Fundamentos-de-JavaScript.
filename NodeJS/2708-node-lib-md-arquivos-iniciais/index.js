@@ -1,8 +1,9 @@
+import chalk from 'chalk';// Formato em uso para importar arquivos, libs e framework.
 
 
-// const chalk = require('chalk');
+// const chalk = require('chalk'); a forma de importar outros arquivos usando o require está ficando em desuso. Entrando no lugar o formato de import nome da variavle from arquivo buscado.
 
-import chalk from 'chalk';
+
 
 console.log(chalk.blue('Hello world!'));
 
