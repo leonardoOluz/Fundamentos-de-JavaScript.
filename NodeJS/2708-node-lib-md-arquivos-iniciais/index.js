@@ -5,25 +5,37 @@ import chalk from 'chalk'; // Formato em uso para importar arquivos, libs e fram
 
 
 
-
-function trataErro(erro) { // função erro demostrar no terminal o erro
-    console.log(erro)
+//   *****   função erro demostrar no terminal o erro   ******
+function trataErro(erro) {
     throw new Error(chalk.red(erro.code, 'Não há arquivo no diretório'));
 }
 
 
-
-
-// Promises com then()
-function pegaArquivo(caminhoDoArquivo) {
-    const encoding = 'utf-8';
-
-    fs.promises
-        .readFile(caminhoDoArquivo, encoding)
-        .then((texto) => console.log(chalk.green(texto)))
-        .catch(trataErro)
+//     *****    async/await   ****** 
+async function pegaArquivo(caminhoDoArquivo) {
+    try {
+        const encoding = 'utf-8';
+        const texto = await fs.promises.readFile(caminhoDoArquivo, encoding)
+        console.log(chalk.green(texto))
+    } catch(erro){
+        trataErro(erro)
+    }
 
 }
+
+pegaArquivo('./arquivos/texto.md')
+pegaArquivo('./arquivos/')
+
+
+//  ******   Promises com then()   *****
+// function pegaArquivo(caminhoDoArquivo) {
+//     const encoding = 'utf-8';
+
+//     fs.promises
+//         .readFile(caminhoDoArquivo, encoding)
+//         .then((texto) => console.log(chalk.green(texto)))
+//         .catch(trataErro)
+// }
 
 
 //  ******     Função Sincrona     ******
@@ -38,12 +50,3 @@ function pegaArquivo(caminhoDoArquivo) {
 // }
 
 //pegarArquivo('./arquivos/texto.md')
-
-
-
-
-
-
-
-
-
