@@ -28,19 +28,19 @@ async function pegaArquivo(caminhoDoArquivo) {
 
 }
 
-pegaArquivo('./arquivos/texto.md')
 pegaArquivo('./arquivos/')
+// pegaArquivo('./arquivos/')
 
 
 //  ******   Promises com then() código assincrono  *****
-function pegaArquivo(caminhoDoArquivo) {
-    const encoding = 'utf-8';
+// function pegaArquivo(caminhoDoArquivo) {
+//     const encoding = 'utf-8';
 
-    fs.promises// Uso do fs.promises para passar ao javascript que está trabalhando com assincrona
-        .readFile(caminhoDoArquivo, encoding)// com o .readFile passamos o parâmetro que deve ser lido pelo metodo e seu segundo parâmentro para dizer que tipo de encode esta usando na leitura.
-        .then((texto) => console.log(chalk.green(texto)))// encadeamos a função de callback .then para que ela assim que receber o arquivo de texto pelo .readFile faça um console.log, acaso receba o arquivo obs: o then é uma função para trabalhar com promessas
-        .catch(trataErro)// o .catch tbm é uma função de callback preparada para pegar erros do tipo assincrona 
-}
+//     fs.promises// Uso do fs.promises para passar ao javascript que está trabalhando com assincrona
+//         .readFile(caminhoDoArquivo, encoding)// com o .readFile passamos o parâmetro que deve ser lido pelo metodo e seu segundo parâmentro para dizer que tipo de encode esta usando na leitura.
+//         .then((texto) => console.log(chalk.green(texto)))// encadeamos a função de callback .then para que ela assim que receber o arquivo de texto pelo .readFile faça um console.log, acaso receba o arquivo obs: o then é uma função para trabalhar com promessas
+//         .catch(trataErro)// o .catch tbm é uma função de callback preparada para pegar erros do tipo assincrona 
+// }
 
 
 // //  ******     Função Sincrona     ******
