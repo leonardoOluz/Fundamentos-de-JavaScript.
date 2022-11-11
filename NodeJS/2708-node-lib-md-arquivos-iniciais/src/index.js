@@ -7,7 +7,7 @@ function extraiLinks(texto) {
     const regex = /\[([^[\]]*?)\]\((https?:\/\/[^\s?#.].[^\s]*)\)/gm;
     const capturas = [...texto.matchAll(regex)];
     const resultados = capturas.map(captura => ({[captura[1]]:[captura[2]]}))
-    return resultados
+    return resultados.length !== 0 ? resultados : 'Não há links no arquivos'
 }
 
 //   *****   função erro demostrar no terminal o erro   ******
@@ -24,7 +24,7 @@ async function pegaArquivo(caminhoDoArquivo) {
     try {// try acontece tudo que queremos que aconteça caso de sucesso para receber o arquivo
         const encoding = 'utf-8';
         const texto = await fs.promises.readFile(caminhoDoArquivo, encoding)
-        console.log(extraiLinks(texto))
+        return extraiLinks(texto);
     } catch (erro) {// catch recebe o erro podendo trabalhar com ele e usar outras função para tratar 
         trataErro(erro)
     } finally {
