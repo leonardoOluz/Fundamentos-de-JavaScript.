@@ -3,7 +3,12 @@ import chalk from 'chalk'; // Formato em uso para importar arquivos, libs e fram
 
 // const chalk = require('chalk'); a forma de importar outros arquivos usando o require está ficando em desuso. Entrando no lugar o formato de import nome da variavle from arquivo buscado.
 
-
+function extraiLinks(texto) {
+    const regex = /\[([^[\]]*?)\]\((https?:\/\/[^\s?#.].[^\s]*)\)/gm;
+    const capturas = [...texto.matchAll(regex)];
+    const resultados = capturas.map(captura => ({[captura[1]]:[captura[2]]}))
+    return resultados
+}
 
 //   *****   função erro demostrar no terminal o erro   ******
 function trataErro(erro) {
@@ -19,7 +24,7 @@ async function pegaArquivo(caminhoDoArquivo) {
     try {// try acontece tudo que queremos que aconteça caso de sucesso para receber o arquivo
         const encoding = 'utf-8';
         const texto = await fs.promises.readFile(caminhoDoArquivo, encoding)
-        console.log(chalk.green(texto))
+        console.log(extraiLinks(texto))
     } catch (erro) {// catch recebe o erro podendo trabalhar com ele e usar outras função para tratar 
         trataErro(erro)
     } finally {
@@ -28,7 +33,14 @@ async function pegaArquivo(caminhoDoArquivo) {
 
 }
 
-pegaArquivo('./arquivos/')
+ pegaArquivo('./arquivos/texto.md')
+
+
+
+
+
+
+
 // pegaArquivo('./arquivos/')
 
 
@@ -62,4 +74,20 @@ pegaArquivo('./arquivos/')
 
 
 // Não apagar a expressão regular
-/* \[[^[\]]*?\] */    //
+
+
+// Expressões Regulares
+/*
+1°Parte
+
+\[[^[\]]*?\] 
+
+2°Parte
+
+/\(https?:\/\/[^\s?#.].[^\s]*\)/gm
+
+Grupos
+
+\[([^[\]]*?)\]\((https?:\/\/[^\s?#.].[^\s]*)\)
+
+*/ 
