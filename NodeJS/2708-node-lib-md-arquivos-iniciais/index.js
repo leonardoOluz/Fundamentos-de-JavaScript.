@@ -55,3 +55,11 @@ pegaArquivo('./arquivos/')
 // }
 
 // pegarArquivo('./arquivos/texto.md')
+
+
+
+
+
+
+// Não apagar a expressão regular
+/* \[[^[\]]*?\] */    //
