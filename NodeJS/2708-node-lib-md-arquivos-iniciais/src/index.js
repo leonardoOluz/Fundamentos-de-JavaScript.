@@ -33,7 +33,13 @@ async function pegaArquivo(caminhoDoArquivo) {
 
 }
 
- pegaArquivo('./arquivos/texto.md')
+// Exportando a função pegaArquivo;
+export default pegaArquivo;
+
+
+
+
+//  pegaArquivo('./arquivos/texto.md')
 
 
 
