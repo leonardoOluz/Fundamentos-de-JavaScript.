@@ -17,7 +17,6 @@ function trataErro(erro) {
     throw new Error(chalk.red(erro.code, 'Não há arquivo no diretório'));// usando o erro.code : codigo do erro, mais podemos ver o objeto todo para verificar o que pode ser utilizado.
 }
 
-
 //     *****    async/await   código assincrono  ****** 
 async function pegaArquivo(caminhoDoArquivo) {
     // dentro de uma função assincrona podemos usar os blocos try/catch para que possamos tratar das funcionalidades
@@ -40,11 +39,6 @@ export default pegaArquivo;
 
 
 //  pegaArquivo('./arquivos/texto.md')
-
-
-
-
-
 
 
 // pegaArquivo('./arquivos/')
