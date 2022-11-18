@@ -6,7 +6,7 @@ import chalk from 'chalk'; // Formato em uso para importar arquivos, libs e fram
 function extraiLinks(texto) {
     const regex = /\[([^[\]]*?)\]\((https?:\/\/[^\s?#.].[^\s]*)\)/gm;
     const capturas = [...texto.matchAll(regex)];
-    const resultados = capturas.map(captura => ({[captura[1]]:[captura[2]]}))
+    const resultados = capturas.map(captura => ({[captura[1]]:captura[2]}))
     return resultados.length !== 0 ? resultados : 'Não há links no arquivos'
 }
 
@@ -27,7 +27,7 @@ async function pegaArquivo(caminhoDoArquivo) {
     } catch (erro) {// catch recebe o erro podendo trabalhar com ele e usar outras função para tratar 
         trataErro(erro)
     } finally {
-        console.log(chalk.yellow('operação concluída'));
+        // console.log(chalk.yellow('operação concluída'));
     }
 
 }
