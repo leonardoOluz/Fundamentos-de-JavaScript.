@@ -15,7 +15,7 @@ function imprimeLista(valida, resultado, identificador = ''){
         console.log(
             chalk.yellow(`Lista de links`),
             chalk.black.bgGreen(identificador),
-            resultado);
+           resultado);
     }
 
 }

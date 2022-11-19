@@ -4,7 +4,7 @@ import chalk from 'chalk'; // Formato em uso para importar arquivos, libs e fram
 // const chalk = require('chalk'); a forma de importar outros arquivos usando o require está ficando em desuso. Entrando no lugar o formato de import nome da variavle from arquivo buscado.
 
 function extraiLinks(texto) {
-    const regex = /\[([^[\]]*?)\]\((https?:\/\/[^\s?#.].[^\s]*)\)/gm;
+    const regex = /\[([^[\]]*?)\]\((https?:\/\/[^\s?#.].[^\s]*)\)/gm; // Expressão regular para extrair os links do texto recebido
     const capturas = [...texto.matchAll(regex)];
     const resultados = capturas.map(captura => ({[captura[1]]:captura[2]}))
     return resultados.length !== 0 ? resultados : 'Não há links no arquivos'
