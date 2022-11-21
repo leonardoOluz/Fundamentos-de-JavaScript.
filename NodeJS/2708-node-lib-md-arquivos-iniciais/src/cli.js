@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 import pegaArquivo from './index.js';
 import fs from 'fs';
 import chalk from 'chalk';
