@@ -1,3 +1,5 @@
+import chalk from "chalk";
+
 function extraiLinks(arrLinks) {
     return arrLinks.map((objectLink) => Object.values(objectLink).join())
 }
@@ -5,20 +7,35 @@ function extraiLinks(arrLinks) {
 async function checaStatus(listaURLs) {
     const arrStatus = await Promise.all(
         listaURLs.map(async (url) => {
-            const response = await fetch(url)
-            return response.status;
+            try {
+                const response = await fetch(url)
+                return response.status;
+
+            } catch (error) {
+                return manejaErros(error)
+
+            }
+
         })
     )
     return arrStatus;
 }
 
-export default async function listaValidada(listaDelinks) {
-    const links = extraiLinks(listaDelinks)
-    const status = await checaStatus(links)
-    console.log(status)
-    return status
-
+function manejaErros(erro) {    
+    if (erro.cause.code === 'ENOTFOUND') {
+        return 'Link não encontrado';
+    } else {
+        return 'Ocorreu algum erro'
+    }
 }
 
+export default async function listaValidada(listaDelinks) {
+    const links = extraiLinks(listaDelinks);
+    const status = await checaStatus(links);
 
-// [gatinho salsicha](http://gatinhosalsicha.com.br/)
+    return listaDelinks.map((objeto, indice) => ({
+        ...objeto,
+        status: status[indice]
+    }))
+
+}
