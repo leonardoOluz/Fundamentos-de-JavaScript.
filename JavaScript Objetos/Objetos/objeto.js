@@ -102,7 +102,7 @@ const cliente03 = {
     nome: 'João',
     idade: 24,
     email: 'joao@email.com',
-    telefone: ['113366999','321654987'] // uso da array na chave telefone
+    telefone: ['113366999', '321654987'] // uso da array na chave telefone
 };
 
 // console.log(cliente03.telefone)
@@ -113,7 +113,7 @@ cliente03.endereco = [{ // usando as chaves antes dos conchetes ou seja declaran
     rua: 'Joseph Climber',
     numero: 1234,
     apartamento: true,
-    complemento:'ap 934'
+    complemento: 'ap 934'
 }]
 // para verificar o objeto aninhado dentro do objeto cliente03
 // console.log(cliente03['endereco']) // usando anotação de conchetes
@@ -144,12 +144,12 @@ const cliente04 = {
     nome: 'João',
     idade: 24,
     email: 'joao@email.com',
-    telefone: ['113366999','321654987'], // uso da array na chave telefone
+    telefone: ['113366999', '321654987'], // uso da array na chave telefone
     saldo: 200,
-    efetuaPagamento: function (valor){
+    efetuaPagamento: function (valor) {
         if (valor > this.saldo) {
             console.log(`Saldo insuficiente`)
-        }else {
+        } else {
             this.saldo -= valor
             console.log(`Pagamento realizado com sucesso. Novo saldo: ${this.saldo}`)
         }
@@ -168,15 +168,143 @@ const objPersonagem = {
     nome: "Gandalf",
     classe: "mago",
     nivel: "20"
-   }
-   
-   // criando um novo objeto usando o Object.create(objOriginal) passado o objeto via parâmentro  do protótipo 
-   const objPersonagem2 = Object.create(objPersonagem)
+}
 
-   // quando alteramos o valor do objeto novo, não temos mais referencias e sim um objeto independente uma nova instância do objeto original
-   objPersonagem2.nome = "Gandalf, o Cinzento"
-   
+// criando um novo objeto usando o Object.create(objOriginal) passado o objeto via parâmentro  do protótipo 
+const objPersonagem2 = Object.create(objPersonagem)
+
+// quando alteramos o valor do objeto novo, não temos mais referencias e sim um objeto independente uma nova instância do objeto original
+objPersonagem2.nome = "Gandalf, o Cinzento"
+
 //    console.log(objPersonagem.nome) //Gandalf
 //    console.log(objPersonagem2.nome) //Gandalf, o Cinzento
 
 
+const cliente05 = {
+    nome: 'João',
+    idade: 24,
+    email: 'joao@email.com',
+    telefone: ['113366999', '321654987'] // uso da array na chave telefone
+};
+
+cliente05.endereco = [{ // usando as chaves antes dos conchetes ou seja declarando uma array e dentro um objeto podemos adicionar mais de um objeto dentro da chave endereco
+    rua: 'Joseph Climber',
+    numero: 1234,
+    apartamento: true,
+    complemento: 'ap 934'
+}]
+
+
+
+// formas de acessar as chaves usando o forin
+
+for (let chave in cliente05) {
+    // console.log(chave);// usando o forin para verificar as chaves do objeto
+    // console.log(cliente05[chave]);// usando a chave dentro do objeto cliente05 para mostra os valores
+    //console.log(` ${chave}  ${cliente05[chave]} `);
+
+    let tipo = typeof cliente05[chave] // usando o typeof para verificar o tipo de dados no objeto para guardar no momento na let
+
+    // console.log(`${tipo} ${chave}  ${cliente05[chave]} `);
+
+    // if (tipo !== "object" && tipo !== "function") {// usamos um if para verificar se o tipo da chaves não são object e function
+    //     console.log(` ${chave}  ${cliente05[chave]} `);
+    // }
+
+
+    if (typeof cliente05[chave] !== 'object' && typeof cliente05[chave] !== 'function') {//usamos um if para verificar se o tipo da chaves não são object e function 
+        // console.log(` ${chave}  ${cliente05[chave]} `);
+    }
+
+}
+
+const cliente06 = {
+    nome: "João",
+    idade: 24,
+    email: 'joao@email.com',
+    telefone: ['321654987', '321654456789'],
+
+}
+cliente06.enderecos = [{
+    rua: 'R.muniz barreto',
+    numero: 1337,
+    apartamento: true,
+    complemento: 'ap 934',
+}];
+
+
+// Usando o metodo de objeto para guardar suas chaves em uma array
+const chavesDoObjeto = Object.keys(cliente06);// Metodo de Object.keys(cliente06)
+//console.log(chavesDoObjeto)
+
+if (!chavesDoObjeto.includes("endereco")) {// verificando se há uma chave valor chamada endereço com o uso do includes
+    // console.log(`Erro, É necessário ter um endereço cadastrado`)
+}
+
+
+
+// Trabalhando com a sintaxe de espalhamento spread operator
+const cliente07 = {
+    nome: "João",
+    idade: 24,
+    email: 'joao@email.com',
+    telefone: ['321654987', '321654456789'],
+
+}
+cliente07.enderecos = [{
+    rua: 'R.muniz barreto',
+    numero: 1337,
+    apartamento: true,
+    complemento: 'ap 934',
+}];
+cliente07.enderecos.push([{
+    rua: 'R.tabatiguera',
+    numero: 1337,
+    apartamento: false,
+    complemento: 'vila tabera',
+}]);
+
+function ligaParaCliente(telefoneComercial, telefoneResidencial) {
+    console.log(`Ligando para ${telefoneComercial}`);
+    console.log(`Ligando para ${telefoneResidencial}`);
+}
+
+//ligaParaCliente(cliente07.telefone[0],cliente07.telefone[1]) // Chamando a função passando os parâmetros obj chave e indice de chave
+//ligaParaCliente(...cliente07.telefone); // chamando a função passando a sintaxe de espalhamento spread operator
+
+
+
+const encomenda = {
+    destinatario: cliente07.nome,
+
+    // rua: cliente07.enderecos[0].rua,
+    // numero: cliente07.enderecos[0].numero,
+    // apartamento: cliente07.enderecos[0].apartamento,
+    // complemento: cliente07.enderecos[0].complemento,
+    ...cliente07.enderecos[1],
+    ...cliente07.enderecos[0], // para não ter que acessar as propriedades do objeto enderecos e mostrar podemos colocar a sintaxe de espalhamento spread operator
+
+
+}
+
+// console.log(encomenda)
+
+
+// exemplos 
+
+const guerreiroZodiaco = {
+    nome: 'Seya',
+    tipo: 'Pégaso',
+    forca: 'Cavaleiro de Bronze'
+}
+const poderGuerreiros = {
+    poder: 'meteoro de pégaso',
+    nivelForca: 75
+}
+
+
+// usando a sintaxe de espalhamento spread operator para espelhar em uma array as chaves e valores dos objetos
+// !!!! IMPORTANTE, Os objetos nunca devem usar os mesmo nomes de chaves quando usar a sintaxe de espalhamento, pois ocorrera a sobre escrita das chaves colocando os valores do ultimo objeto adicionado
+const guerreirosPerformace = {...guerreiroZodiaco, ...poderGuerreiros}
+
+console.log(guerreirosPerformace)
