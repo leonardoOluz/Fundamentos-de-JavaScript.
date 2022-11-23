@@ -307,4 +307,37 @@ const poderGuerreiros = {
 // !!!! IMPORTANTE, Os objetos nunca devem usar os mesmo nomes de chaves quando usar a sintaxe de espalhamento, pois ocorrera a sobre escrita das chaves colocando os valores do ultimo objeto adicionado
 const guerreirosPerformace = {...guerreiroZodiaco, ...poderGuerreiros}
 
-console.log(guerreirosPerformace)
+// console.log(guerreirosPerformace)
+
+// Formato JSON (Java Script Object Notation) Notação de Objeto Java-Script
+
+
+// Objeto em formato JavaScript
+const cliente08 = {
+    nome: 'Leonardo',
+    email: 'leo@email.com',
+    telefone: ['321123321','321654987'],
+    endereco: {
+        rua: 'R. Olindo fraga',
+        numero: 1337,
+        apartamento: true,
+        complemento:'ap 934',
+    },
+};
+
+
+// Mesmo Objeto só que em JSON
+/* {
+    "nome": "Leonardo",
+    "email": "leo@email.com",
+    "telefone": ["321123321","321654987"],
+    "endereco": {
+        "rua": "R. Olindo fraga",
+        "numero": 1337,
+        "apartamento": true,
+        "complemento":"ap 934"
+    }
+} */
+
+
+
