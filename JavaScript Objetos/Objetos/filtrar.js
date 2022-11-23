@@ -1,25 +1,21 @@
 const clientes = require('./cliente.json')
 
-function filterApNotComplet(clientes) {
+// função filtrados com complementos em falta
+function filterApSemComplemento(clientes){
     return clientes.filter((cliente) => {
         return (cliente.endereco.apartamento && !cliente.endereco.hasOwnProperty('complemento'))
-    });
+    })
 }
 
-function filterNoAp(clientes) {
+// função filtrados que não moram em apartamento 
+function filterSemAp(clientes){
     return clientes.filter((cliente) => {
         return (!cliente.endereco.apartamento)
     })
 }
-function filterApOk(clientes) {
-    return clientes.filter((cliente) => {
-        return (cliente.endereco.apartamento && cliente.endereco.hasOwnProperty('complemento'))
-    })
-}
 
-const filtrados = filterApNotComplet(clientes)
-const filtradosNoAp = filterNoAp(clientes)
-const filtradosYesAp = filterApOk(clientes)
 
-console.log(filtradosYesAp)
+const filtrados = filterApSemComplemento(clientes)
+const filtradosNoAp = filterSemAp(clientes)
 
+console.log(filtradosNoAp)
