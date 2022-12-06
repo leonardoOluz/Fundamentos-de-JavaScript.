@@ -1,9 +1,18 @@
-const clientes = require('./cliente.json');
+const cliente = require('./cliente.json')
 
-// Usando o metodo .find para retornar um valor de uma chave dentro do objeto passado
-function pesquisarCliente(lista, chave, valor){
-    return lista.find((cliente) => cliente[chave].includes(valor))
+function verificacaoComplemento(lista, chave, valor){
+    return lista.find((cliente)=> cliente[chave].includes(valor))
 }
 
-const clienteNome = pesquisarCliente(clientes, 'nome', 'Lucca')
-console.log(clienteNome)
+function listaSemComplementos(lista){
+    return lista.filter((list) => {
+        return (list.endereco.apartamento && !list.endereco.hasOwnProperty('complemento'))
+    })
+}
+
+const listaComplemento = listaSemComplementos(cliente)
+
+// const clienteNome = verificacaoComplemento(cliente,'nome','Lucca')
+
+console.log(listaComplemento)
+

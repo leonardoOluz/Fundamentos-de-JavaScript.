@@ -17,6 +17,6 @@ cliente.animalEstimacao.push({
     vacinado: false
 })
 
-const animal = cliente.animalEstimacao.filter(bicho => bicho.raça === "Cão")
+const animal = cliente.animalEstimacao.filter(bicho => bicho.raça.includes("Cão"))
 console.log(animal[0].nome)
 console.log(animal)
