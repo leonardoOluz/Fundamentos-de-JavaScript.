@@ -1,0 +1,13 @@
+{
+  "name": "objetos",
+  "version": "1.0.0",
+  "description": "objetosJavaScript",
+  "type":"commonjs",
+  "main": "Ordenar.js",
+  "scripts": {
+    "test": "node ordenar.js"
+  },
+  "author": "Leo",
+  "license": "ISC"
+}
+
